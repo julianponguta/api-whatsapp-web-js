@@ -1,60 +1,61 @@
 # WhatsApp Node API
 
-Este proyecto es una API de mensajería utilizando WhatsApp a través de Node.js, Express y la biblioteca whatsapp-web.js. Permite enviar mensajes, autenticarse y manejar sesiones de WhatsApp de manera sencilla y eficiente.
+This project is a messaging API using WhatsApp through Node.js, Express, and the whatsapp-web.js library. It allows you to send messages, authenticate, and handle WhatsApp sessions easily and efficiently.
 
-## Comenzando
+## Getting Started
 
-Sigue estas instrucciones para obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
-### Pre-requisitos
 
-Antes de empezar, asegúrate de tener instalado Node.js y opcionalmente Docker para la gestión de contenedores.
+### Prerequisites
+
+Before you begin, make sure you have Node.js installed and optionally Docker for container management.
 
 
 ### Instalación
 
-Primero, clona el repositorio a tu máquina local:
+First, clone the repository to your local machine:
 
 
-Instala las dependencias necesarias:
+Install the necessary dependencies:
 
 
-Para iniciar la aplicación, ejecuta:
+To start the application, run:
 
 
-O, si prefieres usar Docker, construye y ejecuta el contenedor:
+Or, if you prefer to use Docker, build and run the container:
 
 
-## Uso
+## Usage
 
-Una vez que la aplicación esté corriendo, podrás:
+Once the application is running, you can:
 
-- **Autenticarte con WhatsApp**: Visita `/auth/qr` para obtener el código QR y autenticarte.
-- **Enviar mensajes**: Usa la ruta `/messages/send` con los parámetros adecuados.
-- **Cerrar sesión**: Accede a `/auth/logout` para cerrar la sesión activa.
+- **Authenticate with WhatsApp**: Visit `/auth/qr` to get the QR code and authenticate.
+- **Send messages**: Use the `/messages/send` route with the appropriate parameters.
+- **Log out**: Access  `/auth/logout` to log out of the active session.
 
-## Construido con
+## Built With
 
-- [Node.js](https://nodejs.org/) - Entorno de ejecución para JavaScript.
-- [Express](https://expressjs.com/) - Framework para aplicaciones web.
-- [whatsapp-web.js](https://wwebjs.dev/) - Cliente de WhatsApp para Node.js.
+- [Node.js](https://nodejs.org/) - JavaScript runtime environment.
+- [Express](https://expressjs.com/) - Framework for web applications.
+- [whatsapp-web.js](https://wwebjs.dev/) - WhatsApp client for Node.js.
 
 ## Docker
 
-El proyecto incluye archivos `Dockerfile` y `docker-compose.yml` para facilitar el despliegue y la ejecución en contenedores Docker.
+The project includes  `Dockerfile` and `docker-compose.yml` files to facilitate deployment and execution in Docker containers.
 
-## Contribuyendo
+## Contributing
 
-Si tienes sugerencias para mejorar este proyecto, siéntete libre de realizar un fork y luego enviar tus pull requests o abrir un issue.
+If you have suggestions to improve this project, feel free to fork it and then submit your pull requests or open an issue.
 
-## Autores
+## Authors
 
-- Julian P. - Desarrollo inicial - [julianponguta](https://github.com/julianponguta/)
+- Julian P. -  Initial development - [julianponguta](https://github.com/julianponguta/)
 
-## Licencia
+## License
 
-Este proyecto está bajo la Licencia MIT - ver el archivo `LICENSE` para detalles.
+This project is under the MIT License - see the `LICENSE` file for details.
 
-## Agradecimientos
+## Acknowledgments
 
-- Agradecimiento a todos los que contribuyen a mantener las librerías utilizadas en este proyecto.
+- Thanks to everyone who contributes to maintaining the libraries used in this project.
