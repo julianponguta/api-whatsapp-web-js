@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000" # Expone el puerto 3000 del contenedor al puerto 3000 del host
+    volumes:
+      - .:/app # Monta el directorio actual en el directorio /app del contenedor
+    environment:
+      - PORT=3000
+    command: node index.js
