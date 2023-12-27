@@ -10,15 +10,15 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 Before you begin, make sure you have Node.js installed and optionally Docker for container management.
 
-### Instalación
+### Installation
 
-First, clone the repository to your local machine:
+First, clone the repository to your local machine: `git clone https://github.com/julianponguta/api-whatsapp-web-js && cd api-whatsapp-web-js`
 
-Install the necessary dependencies:
+Install the necessary dependencies: `npm install`
 
-To start the application, run:
+To start the application, run: `node index.js`
 
-Or, if you prefer to use Docker, build and run the container:
+Or, if you prefer to use Docker, build and run the container: `docker-compose up --build`
 
 ## Usage
 
