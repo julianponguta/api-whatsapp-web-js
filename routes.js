@@ -1,11 +1,16 @@
 const express = require("express");
-const { logout, getStatus, sendMessage } = require("./whatsappClient");
+const {
+  logout,
+  getStatus,
+  sendMessage,
+  generateQR,
+} = require("./whatsappClient");
 
 const router = express.Router();
 
 // Ruta para solicitar el código QR para la autenticación
 router.get("/auth/qr", (req, res) => {
-  // El evento QR se maneja en whatsappClient.js, por lo que aquí solo indicamos al cliente que revise la terminal
+  generateQR(); // Llama a la función para generar un nuevo QR
   res.send("QR solicitado, revisa la terminal del servidor");
 });
 

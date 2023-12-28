@@ -81,4 +81,16 @@ const sendMessage = (number, message) => {
   return client.sendMessage(chatId, message);
 };
 
-module.exports = { initialize, logout, getStatus, sendMessage };
+//  Genera un código QR para la autenticación del cliente de WhatsApp.
+const generateQR = () => {
+  if (client) {
+    client.destroy();
+    client.initialize();
+  }
+};
+
+client.on("message", (message) => {
+  console.log(`Mensaje de: ${message.from} - ${message.body}`);
+});
+
+module.exports = { initialize, logout, getStatus, sendMessage, generateQR };
