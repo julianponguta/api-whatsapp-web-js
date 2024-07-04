@@ -4,9 +4,32 @@ const {
   getStatus,
   sendMessage,
   generateQR,
+  fetchLastMessages,
 } = require("./whatsappClient");
 
 const router = express.Router();
+
+// Middleware para autenticación básica
+const basicAuth = (req, res, next) => {
+  // Las credenciales codificadas que esperamos recibir en la cabecera de autorización
+  const auth = { login: "admin", password: "admin123" };
+
+  // parse login and password from headers
+  const b64auth = (req.headers.authorization || "").split(" ")[1] || "";
+  const [login, password] = Buffer.from(b64auth, "base64")
+    .toString()
+    .split(":");
+
+  // Verificar credenciales
+  if (login && password && login === auth.login && password === auth.password) {
+    // Si las credenciales son correctas, procedemos al siguiente middleware
+    return next();
+  }
+
+  // Acceso denegado. Se envía un requerimiento de autenticación.
+  res.set("WWW-Authenticate", 'Basic realm="401"'); // Cambia este "401" por algo más descriptivo si lo deseas
+  res.status(401).send("Authentication required."); // o puedes redirigir a una página de "Acceso Denegado"
+};
 
 // Ruta para solicitar el código QR para la autenticación
 router.get("/auth/qr", (req, res) => {
@@ -44,6 +67,18 @@ router.post("/messages/send", (req, res) => {
     .catch((err) => {
       res.status(500).send("Error al enviar mensaje: " + err.toString());
     });
+});
+
+router.get("/messages/last/:number", basicAuth, async (req, res) => {
+  const { number } = req.params;
+  const chatId = number.includes("@c.us") ? number : `${number}@c.us`;
+
+  try {
+    const messages = await fetchLastMessages(chatId);
+    res.send({ messages });
+  } catch (err) {
+    res.status(500).send("Error al obtener los mensajes: " + err.toString());
+  }
 });
 
 // Exportamos el router de express
